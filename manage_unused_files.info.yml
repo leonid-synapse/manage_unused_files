@@ -1,0 +1,5 @@
+name: 'Manage unused files'
+type: module
+description: 'Set temporary status for unused files.'
+core: 8.x
+package: 'Custom'

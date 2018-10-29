@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Contains manage_unused_files.module.
+ */
+
+/**
+ * Implements hook_cron().
+ */
+function manage_unused_files_cron() {
+  \Drupal::database()
+    ->query("UPDATE `file_managed` SET `status` = 0 WHERE `status` = 1 AND `fid` NOT IN (SELECT `fid` FROM `file_usage`) LIMIT 50")
+    ->execute();
+}
